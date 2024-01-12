@@ -1,0 +1,38 @@
+<h1>List Heros</h1>
+
+<div *ngIf="heroBorrado; else nothingWasDeleted">
+<h4>Heroe Borrado <small class="text-danger" >{{heroBorrado}}</small></h4>
+</div>
+
+<ng-template #nothingWasDeleted>
+  <h3>No A Borrado Nada.</h3>
+</ng-template>
+
+<button
+  *ngIf="heroNames.length>0  "
+  (click)="removeLastHero()"
+  class="btn btn-danger">
+  Borrar ultimo heroe
+</button>
+
+<div class="container">
+ <ul class="text-white text-center">
+  <li *ngFor="let name of heroNames"
+      class="list-group-item bg-success rounded-pill px-3 my-1">{{name}}</li>
+ </ul>
+</div>
+
+<ul>
+@for (name of heroNames; track $index) {
+  <li class="list-group-item ">{{name}}</li>
+}
+</ul>
+
+<div class="container">
+  <div class="row text-center">
+  @for (num of  num ; track $index) {
+    <span class="bg-success rounded-pill px-2 mx-1" style="width: 30px;">{{num}}</span>
+  }
+ </div>
+
+</div>
